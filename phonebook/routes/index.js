@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', { title: 'PKPP phonebook' });
+    res.render('phonelist', { title: 'Телефонный справочник ПКПП' });
 });
 
 module.exports = router;
