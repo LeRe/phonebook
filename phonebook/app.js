@@ -24,6 +24,8 @@ app.use(cookieParser());
 app.use('/ajs', express.static(__dirname + '/node_modules/angular'));
 app.use('/bjs', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/jqjs', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/pjs', express.static(__dirname + '/node_modules/popper.js/dist'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
