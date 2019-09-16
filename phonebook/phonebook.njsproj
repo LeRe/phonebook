@@ -31,6 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="lib\config.js" />
+    <Content Include="lib\db.js" />
     <Content Include="routes\index.js" />
     <Content Include="routes\users.js" />
     <Content Include="package.json" />
@@ -44,6 +46,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="lib\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
