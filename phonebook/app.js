@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var json = require('./routes/json');
 var users = require('./routes/users');
 
 var app = express();
@@ -29,6 +30,7 @@ app.use('/pjs', express.static(__dirname + '/node_modules/popper.js/dist'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/json/', json);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
