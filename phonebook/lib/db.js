@@ -9,9 +9,11 @@ var connection = mysql.createConnection({
     database: config.dbName
 });
 
+connection.connect();
+
 //получаем все записи из таблицы phonelist
 function getAllPersons(callback) {
-    connection.connect();
+    
     //let query = 'SELECT id, fioname, jobname, title, location, workphone, dect, mobile, email, department, photopath FROM phonelist';
     let query = 'SELECT id, fioname, jobname, title, location, workphone, dect, mobile, email, department FROM phonelist';
     
@@ -24,7 +26,7 @@ function getAllPersons(callback) {
         
     });
     
-    connection.end();
+    //connection.end();
 }
 
 exports.getAllPersons = getAllPersons;
