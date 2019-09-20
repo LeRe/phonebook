@@ -8,7 +8,10 @@ block content
 
           p test {{'NG-APP ' + 'WORK!!!'}}
 
-          h1= title
+          h1= title          
+
+          script.
+            var persons = [{fioname:"123"},{fioname:"456"},{fioname:"789"}];
 
           table(border='0', cellspacing='0', cellpadding='0', width='100%')
               tr(bgcolor='#AFC7BF')
@@ -18,15 +21,15 @@ block content
                 th № трубки
                 th № Мобильного
                 th E-mail
-              tr
-                td Фамилия Имя Отчество
-                td Должность
-                td 1111
-                td 602
-                td х(ххх)ххх-хх-хх
+              tr(ng-repeat="person in persons")
+                td {{person.fioname}}
+                td {{person.jobname}}
+                td {{person.workphone}}
+                td {{person.dect}}
+                td {{person.mobile}}
                 td 
-                    a(href='mailto:1csp@pkpp.ru') email@email.ru
-                td nophoto.jpg
+                    a(href='mailto:{{person.email}}') {{person.email}}
+                
 
                 button(type='button',class='btn btn-primary',data-toggle='modal',data-target='#exampleModal') Launch demo modal
                 div(class="modal fade", id="exampleModal", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
