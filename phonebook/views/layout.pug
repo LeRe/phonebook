@@ -4,9 +4,11 @@ html
     title= title
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
-  body
-    block content
     script(src='/ajs/angular.min.js')
+    script(src='/angular/phonelist.js')
+
+  body(ng-app='phoneApp')
+    block content 
     script(src='/jqjs/jquery.min.js')
     script(src='/pjs/popper.min.js')
     script(src='/bjs/bootstrap.min.js')

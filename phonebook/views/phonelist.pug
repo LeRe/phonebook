@@ -2,18 +2,14 @@
 
 block content
 
-    div(class='container-fluid', ng-app)
+    div(class='container-fluid', ng-controller='phoneListController')
             
-          div(class='alert alert-primary', role='alert') Simple Bootstrap alert
+          h1=title          
+          
+          p Фильтр: 
+            input(type="text", ng-model="filter")
 
-          p test {{'NG-APP ' + 'WORK!!!'}}
-
-          h1= title          
-
-          script.
-            var persons = [{fioname:"123"},{fioname:"456"},{fioname:"789"}];
-
-          table(border='0', cellspacing='0', cellpadding='0', width='100%')
+          table(border='0', cellspacing='0', cellpadding='0', width='100%', class='table table-striped')
               tr(bgcolor='#AFC7BF')
                 th ФИО
                 th Должность
@@ -21,16 +17,15 @@ block content
                 th № трубки
                 th № Мобильного
                 th E-mail
-              tr(ng-repeat="person in persons")
-                td {{person.fioname}}
-                td {{person.jobname}}
-                td {{person.workphone}}
-                td {{person.dect}}
-                td {{person.mobile}}
+              tr(ng-repeat="person in persons | orderBy:'fioname' | filter : filter")
+                td(ng-click="openPerson(person.id)") {{person.fioname}}
+                td(ng-click="openPerson(person.id)") {{person.jobname}}
+                td(ng-click="openPerson(person.id)") {{person.workphone}}
+                td(ng-click="openPerson(person.id)") {{person.dect}}
+                td(ng-click="openPerson(person.id)") {{person.mobile}}
                 td 
                     a(href='mailto:{{person.email}}') {{person.email}}
                 
-
                 button(type='button',class='btn btn-primary',data-toggle='modal',data-target='#exampleModal') Launch demo modal
                 div(class="modal fade", id="exampleModal", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
                   div(class="modal-dialog", role="document")
