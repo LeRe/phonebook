@@ -29,4 +29,17 @@ function getAllPersons(callback) {
     //connection.end();
 }
 
+function getPerson(id, callback) {
+    let query = 'SELECT fioname, jobname, title, location, workphone, dect, mobile, email, department, photopath FROM phonelist WHERE id=' + id;
+
+    connection.query(query, function (error, results, fields) {
+        if (error) throw error;
+
+        let req = callback.req;
+        let res = callback.res;
+        res.send(JSON.stringify(results[0]));
+    });
+} 
+
 exports.getAllPersons = getAllPersons;
+exports.getPerson = getPerson;

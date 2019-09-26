@@ -8,4 +8,8 @@ router.get('/personlist', function (req, res) {
     db.getAllPersons({req: req,res: res});
 });
 
+router.get('/person', function (req, res) {
+    db.getPerson(req.query.id, { req: req, res: res });
+});
+
 module.exports = router;
