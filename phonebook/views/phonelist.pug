@@ -2,7 +2,11 @@
 
 block content
     
-    div(class='container-fluid', ng-controller='phoneListController')            
+    div(class='container-fluid', ng-controller='phoneListController')
+        label.switch.float-right
+            input(type="checkbox", ng-model="isEditModeEnable", ng-click="editModeChanged()")
+            span.slider.round
+
         h1=title            
         p Фильтр: 
             input(type="text", ng-model="filter")    
