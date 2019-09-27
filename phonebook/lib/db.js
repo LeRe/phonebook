@@ -19,11 +19,7 @@ function getAllPersons(callback) {
     
     connection.query(query, function (error, results, fields) {
         if (error) throw error;
-
-        let req = callback.req;
-        let res = callback.res;
-        res.send(JSON.stringify(results));
-        
+        callback(null, JSON.stringify(results))
     });
     
     //connection.end();
@@ -34,10 +30,7 @@ function getPerson(id, callback) {
 
     connection.query(query, function (error, results, fields) {
         if (error) throw error;
-
-        let req = callback.req;
-        let res = callback.res;
-        res.send(JSON.stringify(results[0]));
+        callback(null, JSON.stringify(results[0]));
     });
 } 
 
